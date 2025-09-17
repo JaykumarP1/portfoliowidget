@@ -21,6 +21,7 @@ function mountWidget(containerId = "my-widget-container") {
   );
 }
 
-export default {
-  mountWidget,
-};
+// 👇 Attach to global (this is the critical part)
+if (typeof window !== "undefined") {
+  window.ReactWidget = { mountWidget };
+}
