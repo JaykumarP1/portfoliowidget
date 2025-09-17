@@ -11,5 +11,5 @@ export default defineConfig({
       fileName: () => "widget.js",
     },
   },
-  base: "/portfolio",
+  base: "/portfoliowidget",
 });

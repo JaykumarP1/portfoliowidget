@@ -1,11 +1,10 @@
 // src/main.jsx
 import React from "react";
-import ReactDOM from "react-dom/client"; // 👈 use client API for React 18+
+import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 
-// Define a mount function
-export function mountWidget(containerId = "my-widget-container") {
+function mountWidget(containerId = "my-widget-container") {
   const container = document.getElementById(containerId);
   if (!container) {
     console.error(
@@ -21,3 +20,7 @@ export function mountWidget(containerId = "my-widget-container") {
     </React.StrictMode>
   );
 }
+
+export default {
+  mountWidget,
+};
