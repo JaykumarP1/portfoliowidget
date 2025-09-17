@@ -1,12 +1,11 @@
-// src/main.jsx
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import "./index.css";
+// import React from "react";
+// import ReactDOM from "react-dom/client";
+// import App from "./App";
+// import "./index.css";
 
 // function mountWidget(containerId = "my-widget-container") {
 //   const container = document.getElementById(containerId);
-//   if (!container) {
+//   // if (!container) {
 //     console.error(
 //       `[ReactWidget] Container with ID "${containerId}" not found.`
 //     );
@@ -21,11 +20,19 @@ import "./index.css";
 //   );
 // }
 
-// // 👇 Attach to global (this is the critical part)
-// if (typeof window !== "undefined") {
-//   window.ReactWidget = { mountWidget };
-// }
+// import React from 'react';
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
 
-const root = ReactDOM.createRoot(document.getElementById("widget"));
+// Find all widget divs
+const widgetDivs = document.querySelectorAll(".widget-portfolio");
 
-root.render(<App />);
+// Inject our React App into each class
+const root = ReactDOM.createRoot(widgetDivs);
+root.render(
+  <React.StrictMode>
+    <App symbol={root.dataset.symbol} />
+  </React.StrictMode>,
+  root
+);
